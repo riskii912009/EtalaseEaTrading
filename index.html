@@ -608,13 +608,13 @@ footer {
                 let detailText = '';
                 if (selectedMethod === 'dana') {
                     methodText = 'DANA';
-                    detailText = 'ke 0812-3456-7890 (Atas Nama:M.DWI RISKI)';
+                    detailText = 'ke 082150102225 (Atas Nama:M.DWI RISKI)';
                 } else if (selectedMethod === 'qris') {
                     methodText = 'QRIS';
                     detailText = '(scan gambar di website)';
                 } else if (selectedMethod === 'seabank') {
                     methodText = 'SeaBank';
-                    detailText = '(SeaBank: 0987654321 Atas Nama: M.DWI RISKI)';
+                    detailText = '(SeaBank: 901437148557 Atas Nama: M.DWI RISKI)';
                 }
                 const waText = `Halo! Saya mau beli: ${itemsText}. Total: Rp ${total.toLocaleString('id-ID')}. Metode: ${methodText} ${detailText}. Saya bayar sekarang, abis bayar saya kirim SS bukti ke sini ya. ID Pesanan: ${Date.now()}.`;
                 document.getElementById('wa-btn').href = `https://wa.me/6281252636815?text=${encodeURIComponent(waText)}`;
