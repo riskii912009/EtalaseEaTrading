@@ -241,14 +241,10 @@
 
             detailDiv.style.display = 'block';
 
-          if (metode === 'QRIS') {
-    qrisImg.src = 'qrr.jpg';
-    qrisImg.style.display = 'block';
-
-    rekeningList.style.display = 'block';
-    rekeningList.innerHTML = 'Download Foto QRIS<br>(Tekan lama foto QRIS lalu Download)';
-
-                rekeningList.style.display = '</strong><br>Dowload Foto Qris [Tekan Lama Foto Qris Kemudian Dowload]';
+            if (metode === 'QRIS') {
+                qrisImg.src = 'qrr.jpg'; // Ganti dengan URL gambar QRIS asli Anda
+                qrisImg.style.display = 'block';
+                rekeningList.style.display = 'none';
             } else if (metode === 'SeaBank') {
                 qrisImg.style.display = 'none'; // Hapus gambar QR untuk SeaBank
                 rekeningList.style.display = 'block';
