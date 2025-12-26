@@ -145,6 +145,16 @@
             <p>Harga: Rp 450.000</p>
             <button class="beli-btn" onclick="bukaModal('Robot Trading Robot BuyStopSellStopSl+')">Beli Sekarang</button>
         </div>
+     <div class="produk">
+    <img src="SCALPER.png" alt="Robot Scalper Pro">
+    <h3>Robot SCALPER PRO BUYSELSTOP V3 Pro</h3>
+    <p class="deskripsi">Robot scalping cepat dengan risiko sedang, cocok untuk trader yang ingin profit cepat <br> [Minim Depo: 2000 Cent] <br> [Batas Acount 1 demo 1 Real]</p>
+    <p>Harga: <span style="text-decoration: line-through; color: #ff6666;">Rp 750.000</span> <span style="color: #00ff88; font-weight: bold;">Rp 550.000</span></p>
+    <button class="beli-btn" onclick="bukaModal('Robot SCALPER PRO BUYSELSTOP V3 Pro')">Beli Sekarang</button>
+</div>
+
+</div>
+
     </section>
 
     <!-- Modal Pembayaran -->
@@ -157,6 +167,7 @@
                 <button onclick="pilihMetode('QRIS')"><i class="fas fa-qrcode"></i> QRIS</button>
                 <button onclick="pilihMetode('SeaBank')"><i class="fas fa-university"></i> SeaBank</button>
                 <button onclick="pilihMetode('Dana')"><i class="fas fa-wallet"></i> Dana</button>
+                <button onclick="pilihMetode('Crypto Tron (TRC20)')"><i class="fas fa-chart-line"></i> Crypto Tron (TRC20)</button>
             </div>
             <div id="detailPembayaran" style="display: none;">
                 <img id="qrisImg" class="qris-img" src="" alt="QRIS" style="display: none;">
@@ -194,6 +205,12 @@
                     <img src="BUYSSDS.PNG" alt="BSSL" onclick="bukaDetailFoto('BUYSSDS.PNG', 'BUYSTOPSELLSTOPSL+')">
                     <h4>BUYSTOPSELLSTOPSL+</h4>
                 </div>
+                <div class="foto-item">
+                <img src="SCALPERRRRR.PNG" alt="SCALPER PRO" onclick="bukaDetailFoto('SCALPERRRRR.PNG', 'SCALPER PRO BUYSELSTOP V3')">
+                <h4>Robot SCALPER PRO BUYSELSTOP V3 Pro</h4>
+                 </div>
+
+                
             </div>
         </div>
     </div>
@@ -254,6 +271,13 @@
                 rekeningList.style.display = 'block';
                 rekeningDetail.innerHTML = '<strong>Dana:</strong><br>No. Rekening: 082150102225 <br>Atas Nama: M.DWI RISKI'; // Ganti dengan info rekening asli
             }
+            else if (metode === 'Crypto Tron (TRC20)') {
+                qrisImg.src = 'qrtron.png '; // Ganti dengan file QR pembayaran Trend
+                qrisImg.style.display = 'block';
+                rekeningList.style.display = 'block'; 
+             rekeningDetail.innerHTML = '<strong>Trend:</strong><br>Alamat/Addres : TQj99hTCV3bRqPTGi4qNxf1TQT7k9t5xxg'; // Ganti dengan alamat asli
+}
+
         }
 
         function lanjutUpload() {
