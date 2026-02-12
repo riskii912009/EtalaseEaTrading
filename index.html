@@ -1,13 +1,292 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EA Robot Store</title>
 
+<style>
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0f172a,#020617);
+    color:white;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#020617,#0f172a);
+    text-align:center;
+    padding:60px 20px 45px;
+    position:relative;
+}
+
+header h1{
+    margin:0;
+    font-size:36px;
+    font-weight:800;
+    letter-spacing:3px;
+    background:linear-gradient(90deg,#22c55e,#25F4EE);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+header p{
+    margin-top:12px;
+    font-size:14px;
+    color:#94a3b8;
+    letter-spacing:2px;
+}
+
+header::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:150px;
+    height:3px;
+    background:linear-gradient(90deg,#22c55e,#25F4EE);
+    border-radius:5px;
+}
+
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    padding:50px 25px;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* CARD */
+.card{
+    background:linear-gradient(160deg,#111827,#0f172a);
+    border-radius:22px;
+    padding:35px 20px 30px;
+    text-align:center;
+    transition:0.35s ease;
+    border:1px solid rgba(34,197,94,0.15);
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+    position:relative;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(34,197,94,0.25);
+    border:1px solid rgba(34,197,94,0.5);
+}
+
+.card h3{
+    margin:0 0 15px;
+    font-size:18px;
+    font-weight:600;
+}
+
+.price{
+    font-size:20px;
+    color:#22c55e;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+/* BUTTON GROUP */
+.btn-group{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:11px 20px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.3s ease;
+    border:none;
+    cursor:pointer;
+}
+
+/* BELI */
+.buy-btn{
+    background:linear-gradient(90deg,#22c55e,#16a34a);
+    color:white;
+    box-shadow:0 8px 20px rgba(34,197,94,0.35);
+}
+
+.buy-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(34,197,94,0.55);
+}
+
+/* VIDEO */
+.video-btn{
+    background:#0f172a;
+    color:#25F4EE;
+    border:1px solid #25F4EE;
+}
+
+.video-btn:hover{
+    background:#111827;
+    transform:translateY(-3px);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px 15px;
+    margin-top:40px;
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(5px);
+}
+
+.modal-content{
+    background:#0f172a;
+    margin:8% auto;
+    padding:30px;
+    border-radius:20px;
+    width:90%;
+    max-width:420px;
+    text-align:center;
+    border:1px solid rgba(34,197,94,0.4);
+    box-shadow:0 20px 50px rgba(34,197,94,0.3);
+    animation:fadeIn 0.3s ease;
+}
+
+.modal-content h2{
+    margin-top:0;
+    margin-bottom:20px;
+    background:linear-gradient(90deg,#22c55e,#25F4EE);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.payment-item{
+    background:#111827;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:12px;
+    border:1px solid rgba(34,197,94,0.2);
+}
+.modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(5px);
+}
+
+.modal-content{
+    background:#0f172a;
+    margin:8% auto;
+    padding:30px;
+    border-radius:20px;
+    width:90%;
+    max-width:420px;
+    text-align:center;
+    border:1px solid rgba(34,197,94,0.4);
+}
+
+.payment-btn{
+    background:#111827;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+    cursor:pointer;
+    border:1px solid rgba(34,197,94,0.2);
+    transition:0.3s;
+}
+
+.payment-btn:hover{
+    border:1px solid #22c55e;
+    background:#1f2937;
+}
+
+.wa-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 18px;
+    background:#22c55e;
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.close{
+    position:absolute;
+    right:25px;
+    top:15px;
+    font-size:24px;
+    cursor:pointer;
+    color:#94a3b8;
+}
+
+.payment-item p{
+    margin:6px 0 0;
+    font-size:13px;
+    color:#22c55e;
+}
+
+.close{
+    position:absolute;
+    right:25px;
+    top:15px;
+    font-size:24px;
+    cursor:pointer;
+    color:#94a3b8;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(-20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:480px){
+    header h1{font-size:24px;}
+    header p{font-size:12px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>EA ROBOT STORE</h1>
+    <p>PREMIUM TRADING AUTOMATION</p>
+</header>
+
+<div class="container">
 <div class="card">
-    <img src="img/equity.jpg" class="product-img">
     <h3>Hedge Pro Equity</h3>
     <div class="price">24$</div>
     <div class="btn-group">
         <button class="btn buy-btn" 
             data-product="Hedge Pro Equity" 
-            data-price="24$">
+            data-price="Rp 400.000">
             BELI
         </button>
         <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFwLFYq/">LIHAT VIDEO</a>
@@ -15,55 +294,51 @@
 </div>
 
 <div class="card">
-    <img src="img/counter.jpg" class="product-img">
     <h3>Hedge Pro Counter</h3>
     <div class="price">33$</div>
     <div class="btn-group">
         <button class="btn buy-btn" 
             data-product="Hedge Pro Counter" 
-            data-price="33$">
+            data-price="Rp 550.000">
             BELI
         </button>
-        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTboRf/">LIHAT VIDEO</a>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTboRf/ ">LIHAT VIDEO</a>
     </div>
 </div>
 
 <div class="card">
-    <img src="img/follow.jpg" class="product-img">
     <h3>Follow Trend EA</h3>
     <div class="price">30$</div>
     <div class="btn-group">
         <button class="btn buy-btn" 
             data-product="Follow Trend EA" 
-            data-price="30$">
+            data-price="Rp 500.000">
             BELI
         </button>
-        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTXefK/">LIHAT VIDEO</a>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTXefK/ ">LIHAT VIDEO</a>
     </div>
 </div>
 
 <div class="card">
-    <img src="img/scalper.jpg" class="product-img">
     <h3>Scalper Pro V3</h3>
     <div class="price">36$</div>
     <div class="btn-group">
         <button class="btn buy-btn" 
             data-product="Scalper Pro V3" 
-            data-price="36$">
+            data-price="Rp 600.000">
             BELI
         </button>
-        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTHJ6T/">LIHAT VIDEO</a>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTHJ6T/ ">LIHAT VIDEO</a>
     </div>
 </div>
 
 <div class="card">
-    <img src="img/sewa.jpg" class="product-img">
     <h3>Hedge Se Arah (Sewa 1 Bulan + IB)</h3>
     <div class="price">10$</div>
     <div class="btn-group">
         <button class="btn buy-btn" 
             data-product="Hedge Se Arah (Sewa 1 Bulan + IB)" 
-            data-price="10$">
+            data-price="Rp 200.000">
             BELI
         </button>
         <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFw1yC1/">LIHAT VIDEO</a>
@@ -71,17 +346,128 @@
 </div>
 
 <div class="card">
-    <img src="img/nonsewa.jpg" class="product-img">
     <h3>Hedge Se Arah (Non Sewa)</h3>
     <div class="price">90$</div>
     <div class="btn-group">
         <button class="btn buy-btn" 
             data-product="Hedge Se Arah (Non Sewa)" 
-            data-price="90$">
+            data-price="Rp 1.500.000">
             BELI
         </button>
-        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFToftm/">LIHAT VIDEO</a>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFToftm/ ">LIHAT VIDEO</a>
     </div>
 </div>
 
 </div>
+
+<footer>
+© 2026 EA Robot Store
+</footer>
+<!-- PAYMENT MODAL -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Metode Pembayaran</h2>
+
+      <div id="methodList">
+
+          <div class="payment-btn" onclick="selectPayment('DANA','0821-5010-2225',' M.Dwi Riski')">
+              DANA
+          </div>
+
+          <div class="payment-btn" onclick="selectPayment('SeaBank','901437148557',' M.Dwi Riski')">
+              SeaBank
+          </div>
+
+          <div class="payment-btn" onclick="selectPayment('blu BCA','008657094621',' M.Dwi Riski')">
+              blu BCA
+          </div>
+
+          <div class="payment-btn" onclick="selectPayment('USDT TRC20','TQj99hTCV3bRqPTGi4qNxf1TQT7k9t5xxg','M.DWI RISKI')">
+              USDT TRC20
+          </div>
+
+      </div>
+
+      <!-- DETAIL AREA -->
+      <div id="paymentDetail" style="display:none; margin-top:20px;">
+          <h3 id="methodTitle"></h3>
+          <p><strong>Nama:</strong> <span id="accountName"></span></p>
+          <p><strong>Nomor:</strong> <span id="accountNumber"></span></p>
+
+          <a id="waLink" class="wa-btn" target="_blank">
+              Kirim Bukti ke WhatsApp
+          </a>
+      </div>
+
+  </div>
+</div>
+<script>
+
+let selectedProduct = "";
+let selectedPrice   = "";
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const modal     = document.getElementById("paymentModal");
+    const buyButtons = document.querySelectorAll(".buy-btn");
+    const closeBtn  = document.querySelector(".close");
+
+    buyButtons.forEach(btn => {
+        btn.addEventListener("click", function(){
+
+            // Ambil data dari tombol
+            selectedProduct = this.getAttribute("data-product");
+            selectedPrice   = this.getAttribute("data-price");
+
+            // Tampilkan nama produk di popup (kalau ada elementnya)
+            const productTitle = document.getElementById("selectedProduct");
+            if(productTitle){
+                productTitle.innerText = selectedProduct + " (" + selectedPrice + ")";
+            }
+
+            modal.style.display = "block";
+        });
+    });
+
+    // Tutup modal
+    closeBtn.addEventListener("click", function(){
+        modal.style.display = "none";
+        document.getElementById("paymentDetail").style.display = "none";
+    });
+
+    // Klik luar modal
+    window.addEventListener("click", function(e){
+        if(e.target === modal){
+            modal.style.display = "none";
+            document.getElementById("paymentDetail").style.display = "none";
+        }
+    });
+
+});
+
+function selectPayment(method, number, name){
+
+    document.getElementById("paymentDetail").style.display = "block";
+    document.getElementById("methodTitle").innerText = method;
+    document.getElementById("accountName").innerText = name;
+    document.getElementById("accountNumber").innerText = number;
+
+    let waNumber = "6281252636815"; // nomor WA tanpa 0
+
+    let message =
+        "Halo admin, saya sudah transfer.\n\n" +
+        "Detail Pembelian:\n" +
+        "EA: " + selectedProduct + "\n" +
+        "Harga: " + selectedPrice + "\n" +
+        "Metode: " + method + "\n\n" +
+        "Sebentar Saya Akan Kirim Bukti Pembayaran nya";
+
+    document.getElementById("waLink").href =
+        "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(message);
+}
+
+</script>
+
+</body>
+</html>
