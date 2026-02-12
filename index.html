@@ -1,395 +1,87 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert Advisor Trading Robot Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Untuk ikon -->
-    <style>
-        /* Reset dan Font */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e); color: #fff; overflow-x: hidden; line-height: 1.6; }
-        h1, h2, h3 { text-align: center; margin: 20px 0; }
-        h1 { font-size: 3em; color: #00ff88; animation: glow 2s infinite alternate; background: linear-gradient(45deg, #00ff88, #00ccff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @keyframes glow { from { text-shadow: 0 0 10px #00ff88; } to { text-shadow: 0 0 20px #00ff88, 0 0 30px #00ccff; } }
-        h2 { color: #ffaa00; font-size: 2em; }
-        h3 { color: #00ff88; font-size: 1.5em; }
-.video-btn {
-    display: inline-block;
-    margin-top: 10px;
-    background: linear-gradient(45deg, #000000, #ff0050);
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 0, 80, 0.4);
-}
+<div class="container">
 
-.video-btn i {
-    margin-right: 8px;
-}
+<div class="card">
+    <img src="img/equity.jpg" class="product-img">
+    <h3>Hedge Pro Equity</h3>
+    <div class="price">24$</div>
+    <div class="btn-group">
+        <button class="btn buy-btn" 
+            data-product="Hedge Pro Equity" 
+            data-price="24$">
+            BELI
+        </button>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFwLFYq/">LIHAT VIDEO</a>
+    </div>
+</div>
 
-.video-btn:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 0, 80, 0.7);
-}
+<div class="card">
+    <img src="img/counter.jpg" class="product-img">
+    <h3>Hedge Pro Counter</h3>
+    <div class="price">33$</div>
+    <div class="btn-group">
+        <button class="btn buy-btn" 
+            data-product="Hedge Pro Counter" 
+            data-price="33$">
+            BELI
+        </button>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTboRf/">LIHAT VIDEO</a>
+    </div>
+</div>
 
-        /* Header */
-        header { background: rgba(0, 0, 0, 0.9); padding: 30px; text-align: center; box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3); }
-        nav { margin-top: 15px; }
-        nav a { color: #00ff88; text-decoration: none; margin: 0 20px; font-weight: bold; transition: all 0.3s; position: relative; }
-        nav a:hover { color: #ff4444; transform: scale(1.1); }
-        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; background: #ff4444; transition: width 0.3s, left 0.3s; }
-        nav a:hover::after { width: 100%; left: 0; }
+<div class="card">
+    <img src="img/follow.jpg" class="product-img">
+    <h3>Follow Trend EA</h3>
+    <div class="price">30$</div>
+    <div class="btn-group">
+        <button class="btn buy-btn" 
+            data-product="Follow Trend EA" 
+            data-price="30$">
+            BELI
+        </button>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTXefK/">LIHAT VIDEO</a>
+    </div>
+</div>
 
-        /* Home Section */
-        #home { padding: 80px 20px; text-align: center; background: rgba(255, 255, 255, 0.05); margin: 20px; border-radius: 15px; box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.1); }
-        #home p { font-size: 1.2em; max-width: 800px; margin: 0 auto; color: #ddd; }
-        #home .highlight { color: #00ff88; font-weight: bold; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        #home .check-btn { background: linear-gradient(45deg, #00ff88, #00ccff); color: #000; border: none; padding: 15px 30px; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 30px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3); }
-        #home .check-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 255, 136, 0.5); }
+<div class="card">
+    <img src="img/scalper.jpg" class="product-img">
+    <h3>Scalper Pro V3</h3>
+    <div class="price">36$</div>
+    <div class="btn-group">
+        <button class="btn buy-btn" 
+            data-product="Scalper Pro V3" 
+            data-price="36$">
+            BELI
+        </button>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFTHJ6T/">LIHAT VIDEO</a>
+    </div>
+</div>
 
-        /* Etalase (Grid Responsif) */
-        .etalase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .produk { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 25px; text-align: center; transition: all 0.4s ease; animation: fadeInUp 1s ease-in; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); border: 1px solid rgba(0, 255, 136, 0.2); }
-        .produk:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5); background: rgba(255, 255, 255, 0.15); }
-        .produk img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; transition: transform 0.3s; }
-        .produk img:hover { transform: scale(1.1); }
-        .produk h3 { margin: 15px 0; color: #00ff88; }
-        .produk p { margin-bottom: 10px; color: #ccc; }
-        .produk .deskripsi { font-size: 0.9em; margin-bottom: 20px; color: #aaa; }
-        .beli-btn { background: linear-gradient(45deg, #ff4444, #ff6666); color: #fff; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; transition: all 0.3s; font-weight: bold; box-shadow: 0 4px 10px rgba(255, 68, 68, 0.3); }
-        .beli-btn:hover { background: linear-gradient(45deg, #cc3333, #ff4444); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 68, 68, 0.5); }
+<div class="card">
+    <img src="img/sewa.jpg" class="product-img">
+    <h3>Hedge Se Arah (Sewa 1 Bulan + IB)</h3>
+    <div class="price">10$</div>
+    <div class="btn-group">
+        <button class="btn buy-btn" 
+            data-product="Hedge Se Arah (Sewa 1 Bulan + IB)" 
+            data-price="10$">
+            BELI
+        </button>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFw1yC1/">LIHAT VIDEO</a>
+    </div>
+</div>
 
-        /* Animasi Fade-In-Up */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Modal Pembayaran */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
-        .modal-content { background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 10% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 600px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); animation: modalFadeIn 0.5s ease; max-height: 80vh; overflow-y: auto; }
-        @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        .close { color: #aaa; float: right; font-size: 30px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
-        .close:hover { color: #fff; }
-        .pembayaran { margin: 25px 0; }
-        .pembayaran button { background: linear-gradient(45deg, #00ff88, #00ccff); color: #000; border: none; padding: 12px 20px; margin: 8px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3); }
-        .pembayaran button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 255, 136, 0.5); }
-        .pembayaran button i { margin-right: 8px; }
-        .qris-img { width: 500px; height: 700px; margin: 20px auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); } /* Diperbesar dari 400px ke 500px */
-        .rekening-list { text-align: left; margin: 20px 0; color: #ddd; }
-        .rekening-list h4 { color: #00ff88; margin-bottom: 10px; }
-        .rekening-list p { margin: 5px 0; }
-
-        /* Modal Check Input EA - Popup dengan Foto */
-        .modal-check { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
-        .modal-check-content { background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 800px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); animation: modalFadeIn 0.5s ease; max-height: 90vh; overflow-y: auto; }
-        .contoh-foto { margin-bottom: 20px; }
-        .contoh-foto img { width: 100%; max-width: 400px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); }
-        .foto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
-        .foto-item { background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 15px; text-align: center; transition: all 0.3s; }
-        .foto-item:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3); }
-        .foto-item img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; }
-        .foto-item h4 { margin-top: 10px; color: #00ff88; font-size: 1.1em; }
-
-        /* Footer */
-        footer { background: rgba(0, 0, 0, 0.9); padding: 30px; text-align: center; margin-top: 50px; }
-        footer p { color: #ccc; }
-        footer a { color: #00ff88; text-decoration: none; }
-        footer a:hover { color: #ff4444; }
-
-        /* Responsif untuk HP */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2em; }
-            h2 { font-size: 1.5em; }
-            .etalase { grid-template-columns: 1fr; gap: 20px; }
-            .produk { padding: 20px; }
-            #home { padding: 50px 20px; }
-            nav a { margin: 0 10px; }
-            .qris-img { width: 250px; height: 250px; } /* Diperbesar dari 150px ke 250px untuk HP */
-            .foto-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Robot Animasi */
-        .robot { position: fixed; bottom: 20px; right: 20px; width: 120px; height: 120px; background: url('https://via.placeholder.com/120x120?text=🤖') no-repeat center; background-size: cover; animation: bounce 3s infinite; z-index: 10; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-15px); } 60% { transform: translateY(-8px); } }
-
-        /* Grafik Trading Animasi (Opsional) */
-        .trading-chart { position: absolute; top: 50%; left: 10%; width: 200px; height: 100px; background: url('https://via.placeholder.com/200x100?text=Chart') no-repeat; opacity: 0.3; animation: float 4s infinite ease-in-out; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Expert Advisor Trading Robot Store</h1>
-        <nav>
-            <a href="#home"><i class="fas fa-home"></i> Home</a>
-            <a href="#produk"><i class="fas fa-shopping-cart"></i> Produk</a>
-            <a href="#kontak"><i class="fas fa-envelope"></i> Kontak</a>
-        </nav>
-    </header>
-
-    <section id="home" style="position: relative;">
-        <div class="trading-chart"></div> <!-- Animasi grafik opsional -->
-        <h2>Selamat Datang di Dunia Trading Otomatis</h2>
-        <p>Dapatkan <span class="highlight">Expert Advisor Trading Robot</span> canggih yang dirancang untuk memaksimalkan profit Anda di pasar forex. Dengan algoritma AI mutakhir, robot ini bekerja 24/7 tanpa lelah. Pilih paket yang sesuai kebutuhan Anda dan mulai trading seperti para ahli!</p>
-        <button class="check-btn" onclick="bukaModalCheck()"><i class="fas fa-check-circle"></i> Check Input EA</button>
-    </section>
-
-    <section id="produk" class="etalase">
-        <div class="produk">
-            <img src="PROEQUIITY.png" alt="Robot Basic">
-            <h3>Robot Hedge Pro Equity</h3>
-            <p class="deskripsi">Hedge Yang Low Risk Dengan Counter Pertama 0.01, Cocok Untuk Yang Baru Mulai Pakai Ea [Minim Depo : 2000 Cent]</p>
-            <p>Harga: Rp 400.000</p>
-            <button class="beli-btn" onclick="bukaModal('Robot Hedge Pro Equity')">Beli Sekarang</button>
-
-<a href="https://vt.tiktok.com/ZS5RbnQtw/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
-        </div>
-        <div class="produk">
-            <img src="HEDGEPROEA.png" alt="Robot Pro">
-            <h3>Robot Hedge Pro Counter Langusng</h3>
-            <p class="deskripsi">Untuk trader berpengalaman. Hedge Yang Higk Risk Dan Profitable Karena Sekali Counter 0.02 Atau lots Multy Atau Perkalian [minim depo: 3000/4000 cent]</p>
-            <p>Harga: Rp 550.000</p>
-            <button class="beli-btn" onclick="bukaModal('Robot Hedge Pro Counter Langusng')">Beli Sekarang</button>
-    
-
-<a href="https://vt.tiktok.com/ZS5RgQ92X/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
-        </div>
-        <div class="produk">
-            <img src="folowtrend.png" alt="Robot Premium">
-            <h3>Robot Folow Trend</h3>
-            <p class="deskripsi">Untuk Trader Yang Sabar Untuk Mencari Profit Kecil Tapi Low Risk Karena Sudah Mengikuti Trend Chart [Minim Depo : 2000 Cent]</p>
-            <p>Harga: Rp 500.000</p>
-            <button class="beli-btn" onclick="bukaModal('Robot Trading Robot Folow Trend')">Beli Sekarang</button>
-
-
-<a href="https://vt.tiktok.com/ZS5RghdJ6/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
-        </div>
-        <div class="produk">
-            <img src="BSSL.png" alt="Robot Ultimate">
-            <h3>Robot BuyStopSellStopSl+</h3>
-            <p class="deskripsi">Untuk Trader Awam/Berpengalaman Medium Risk Yang Di sediakan Progam, Harus Spread 0.2/0.1 [Minim Depo: 2000/4000 Cent]</p>
-            <p>Harga: Rp 450.000</p>
-            <button class="beli-btn" onclick="bukaModal('Robot Trading Robot BuyStopSellStopSl+')">Beli Sekarang</button>
-
-<a href="https://vt.tiktok.com/ZS5RgsVaA/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
-        </div>
-     <div class="produk">
-    <img src="SCALPER.png" alt="Robot Scalper Pro">
-    <h3>Robot SCALPER PRO BUYSELSTOP V3 Pro</h3>
-    <p class="deskripsi">Robot scalping cepat dengan risiko sedang, cocok untuk trader yang ingin profit cepat <br> [Minim Depo: 2000 Cent] <br> [Batas Acount 1 demo 1 Real]</p>
-    <p>Harga: <span style="text-decoration: line-through; color: #ff6666;">Rp 750.000</span> <span style="color: #00ff88; font-weight: bold;">Rp 600.000</span></p>
-    <button class="beli-btn" onclick="bukaModal('Robot SCALPER PRO BUYSELSTOP V3 Pro')">Beli Sekarang</button>
-
-<a href="https://vt.tiktok.com/ZS5RgokPD/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
+<div class="card">
+    <img src="img/nonsewa.jpg" class="product-img">
+    <h3>Hedge Se Arah (Non Sewa)</h3>
+    <div class="price">90$</div>
+    <div class="btn-group">
+        <button class="btn buy-btn" 
+            data-product="Hedge Se Arah (Non Sewa)" 
+            data-price="90$">
+            BELI
+        </button>
+        <a class="btn video-btn" href="https://vt.tiktok.com/ZSmFToftm/">LIHAT VIDEO</a>
+    </div>
 </div>
 
 </div>
-
-    </section>
-
-    <!-- Modal Pembayaran -->
-    <div id="modalPembayaran" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="tutupModal()">&times;</span>
-            <h2>Pilih Metode Pembayaran</h2>
-            <p id="produkDipilih" style="color: #00ff88; font-weight: bold;"></p>
-            <div class="pembayaran">
-                <button onclick="pilihMetode('QRIS')"><i class="fas fa-qrcode"></i> QRIS</button>
-                <button onclick="pilihMetode('SeaBank')"><i class="fas fa-university"></i> SeaBank</button>
-                <button onclick="pilihMetode('Dana')"><i class="fas fa-wallet"></i> Dana</button>
-                <button onclick="pilihMetode('Crypto Tron (TRC20)')"><i class="fas fa-chart-line"></i> Crypto Tron (TRC20)</button>
-            </div>
-            <div id="detailPembayaran" style="display: none;">
-                <img id="qrisImg" class="qris-img" src="" alt="QRIS" style="display: none;">
-                <div class="rekening-list" id="rekeningList" style="display: none;">
-                    <h4>Informasi Rekening:</h4>
-                    <p id="rekeningDetail"></p>
-                </div>
-                              <button onclick="lanjutUpload()" style="background: linear-gradient(45deg, #00ff88, #00ccff); color: #000; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 20px;">Lanjut</button>
-                <div id="uploadProof" style="display: none; margin-top: 20px;">
-                    <p style="color: #00ff88; font-weight: bold;">Kirim Bukti Pembayaran via WhatsApp:</p>
-                    <button onclick="kirimBukti()" style="background: linear-gradient(45deg, #ff4444, #ff6666); color: #fff; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 10px;">Chat WhatsApp</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Check Input EA - Popup dengan Foto -->
-    <div id="modalCheck" class="modal-check">
-        <div class="modal-check-content">
-            <span class="close" onclick="tutupModalCheck()">&times;</span>
-            <div class="foto-grid">
-                <div class="foto-item">
-                    <img src="PROEQUITYYY.PNG" alt="PROEQUITY" onclick="bukaDetailFoto('PROEQUITYYY.PNG', 'HEDGE PRO EQUITY')">
-                    <h4>HEDGE PRO EQUITY</h4>
-                </div>
-                <div class="foto-item">
-                    <img src="HEDGEPRO.PNG" alt="HEDGEPROEA" onclick="bukaDetailFoto('HEDGEPRO.PNG', 'HEDGE PRO COUNTER')">
-                    <h4>HEDGE PRO COUNTER</h4>
-                </div>
-                <div class="foto-item">
-                    <img src="FLWTRND.PNG" alt="FOLOWTREND" onclick="bukaDetailFoto('FLWTRND.PNG', 'FOLOW TREND')">
-                    <h4>FOLOW TREND</h4>
-                </div>
-                <div class="foto-item">
-                    <img src="BUYSSDS.PNG" alt="BSSL" onclick="bukaDetailFoto('BUYSSDS.PNG', 'BUYSTOPSELLSTOPSL+')">
-                    <h4>BUYSTOPSELLSTOPSL+</h4>
-                </div>
-                <div class="foto-item">
-                <img src="SCALPERRRRR.PNG" alt="SCALPER PRO" onclick="bukaDetailFoto('SCALPERRRRR.PNG', 'SCALPER PRO BUYSELSTOP V3')">
-                <h4>Robot SCALPER PRO BUYSELSTOP V3 Pro</h4>
-                 </div>
-
-                
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Detail Foto -->
-    <div id="modalDetailFoto" class="modal-check">
-        <div class="modal-check-content">
-            <span class="close" onclick="tutupModalDetailFoto()">&times;</span>
-            <h2 id="detailTitle" style="color: #00ff88; margin-bottom: 20px;"></h2>
-            <img id="detailImg" src="" alt="Detail Foto" style="width: 100%; max-width: 600px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
-        </div>
-    </div>
-
-    <!-- Robot Animasi -->
-    <div class="robot"></div>
-
-    <footer id="kontak">
-        <p>&copy; 2023 Expert Advisor Trading Robot Store. Semua hak dilindungi.</p>
-        <p>Hubungi kami: <a href="mailto:miminnfxea@gmail.com">support:miminnfxea@gmail.com</a> | WhatsApp: +62 812-5263-6815</p>
-    </footer>
-
-    <script>
-        let produkTerpilih = '';
-        let metodeTerpilih = '';
-
-        function bukaModal(produk) {
-            produkTerpilih = produk;
-            metodeTerpilih = '';
-            document.getElementById('modalPembayaran').style.display = 'block';
-            document.getElementById('produkDipilih').innerText = 'Produk: ' + produk;
-            document.getElementById('detailPembayaran').style.display = 'none'; // Sembunyikan detail awal
-        }
-
-        function tutupModal() {
-            document.getElementById('modalPembayaran').style.display = 'none';
-            document.getElementById('detailPembayaran').style.display = 'none';
-        }
-
-        function pilihMetode(metode) {
-            metodeTerpilih = metode;
-            const detailDiv = document.getElementById('detailPembayaran');
-            const qrisImg = document.getElementById('qrisImg');
-            const rekeningList = document.getElementById('rekeningList');
-            const rekeningDetail = document.getElementById('rekeningDetail');
-
-            detailDiv.style.display = 'block';
-
-            if (metode === 'QRIS') {
-                qrisImg.src = 'qrr.jpg'; // Ganti dengan URL gambar QRIS asli Anda
-                qrisImg.style.display = 'block';
-                rekeningList.style.display = 'none';
-            } else if (metode === 'SeaBank') {
-                qrisImg.style.display = 'none'; // Hapus gambar QR untuk SeaBank
-                rekeningList.style.display = 'block';
-                rekeningDetail.innerHTML = '<strong>SeaBank:</strong><br>No. Rekening: 901437148557 <br>Atas Nama: M.DWI RISKI'; // Ganti dengan info rekening asli
-            } else if (metode === 'Dana') {
-                qrisImg.style.display = 'none'; // Hapus gambar QR untuk Dana
-                rekeningList.style.display = 'block';
-                rekeningDetail.innerHTML = '<strong>Dana:</strong><br>No. Rekening: 082150102225 <br>Atas Nama: M.DWI RISKI'; // Ganti dengan info rekening asli
-            }
-            else if (metode === 'Crypto Tron (TRC20)') {
-                qrisImg.src = 'qrtron.png '; // Ganti dengan file QR pembayaran Trend
-                qrisImg.style.display = 'block';
-                rekeningList.style.display = 'block'; 
-             rekeningDetail.innerHTML = '<strong>Trend:</strong><br>Alamat/Addres : TQj99hTCV3bRqPTGi4qNxf1TQT7k9t5xxg'; // Ganti dengan alamat asli
-}
-
-        }
-
-        function lanjutUpload() {
-            document.getElementById('uploadProof').style.display = 'block';
-        }
-
-        function kirimBukti() {
-            // Buka WhatsApp dengan pesan untuk kirim bukti pembayaran.
-            const whatsappUrl = 'https://wa.me/6281252636815?text=Hai, saya sudah transfer untuk produk ' + encodeURIComponent(produkTerpilih) + ' menggunakan metode ' + encodeURIComponent(metodeTerpilih) + '. Saya akan kirim bukti pembayaran.';
-            window.open(whatsappUrl, '_blank');
-        }
-
-        function bukaModalCheck() {
-            document.getElementById('modalCheck').style.display = 'block';
-        }
-
-        function tutupModalCheck() {
-            document.getElementById('modalCheck').style.display = 'none';
-        }
-
-        function bukaDetailFoto(src, title) {
-            document.getElementById('detailImg').src = src;
-            document.getElementById('detailTitle').innerText = title;
-            document.getElementById('modalDetailFoto').style.display = 'block';
-        }
-
-        function tutupModalDetailFoto() {
-            document.getElementById('modalDetailFoto').style.display = 'none';
-        }
-
-        // Tutup modal jika klik di luar
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('modalPembayaran')) {
-                tutupModal();
-            }
-            if (event.target == document.getElementById('modalCheck')) {
-                tutupModalCheck();
-            }
-            if (event.target == document.getElementById('modalDetailFoto')) {
-                tutupModalDetailFoto();
-            }
-        }
-
-        // Animasi scroll sederhana
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.produk');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    el.style.animationDelay = '0s';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-
