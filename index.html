@@ -3,379 +3,715 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert Advisor Trading Robot Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Untuk ikon -->
+    <title>FX Elite Robots</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Reset dan Font */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e); color: #fff; overflow-x: hidden; line-height: 1.6; }
-        h1, h2, h3 { text-align: center; margin: 20px 0; }
-        h1 { font-size: 3em; color: #00ff88; animation: glow 2s infinite alternate; background: linear-gradient(45deg, #00ff88, #00ccff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @keyframes glow { from { text-shadow: 0 0 10px #00ff88; } to { text-shadow: 0 0 20px #00ff88, 0 0 30px #00ccff; } }
-        h2 { color: #ffaa00; font-size: 2em; }
-        h3 { color: #00ff88; font-size: 1.5em; }
-.video-btn {
-    display: inline-block;
-    margin-top: 10px;
-    background: linear-gradient(45deg, #000000, #ff0050);
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 0, 80, 0.4);
-}
-
-.video-btn i {
-    margin-right: 8px;
-}
-
-.video-btn:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 0, 80, 0.7);
-}
-
-        /* Header */
-        header { background: rgba(0, 0, 0, 0.9); padding: 30px; text-align: center; box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3); }
-        nav { margin-top: 15px; }
-        nav a { color: #00ff88; text-decoration: none; margin: 0 20px; font-weight: bold; transition: all 0.3s; position: relative; }
-        nav a:hover { color: #ff4444; transform: scale(1.1); }
-        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; background: #ff4444; transition: width 0.3s, left 0.3s; }
-        nav a:hover::after { width: 100%; left: 0; }
-
-        /* Home Section */
-        #home { padding: 80px 20px; text-align: center; background: rgba(255, 255, 255, 0.05); margin: 20px; border-radius: 15px; box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.1); }
-        #home p { font-size: 1.2em; max-width: 800px; margin: 0 auto; color: #ddd; }
-        #home .highlight { color: #00ff88; font-weight: bold; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        #home .check-btn { background: linear-gradient(45deg, #00ff88, #00ccff); color: #000; border: none; padding: 15px 30px; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 30px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3); }
-        #home .check-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 255, 136, 0.5); }
-
-        /* Etalase (Grid Responsif) */
-        .etalase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .produk { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 25px; text-align: center; transition: all 0.4s ease; animation: fadeInUp 1s ease-in; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); border: 1px solid rgba(0, 255, 136, 0.2); }
-        .produk:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5); background: rgba(255, 255, 255, 0.15); }
-        .produk img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; transition: transform 0.3s; }
-        .produk img:hover { transform: scale(1.1); }
-        .produk h3 { margin: 15px 0; color: #00ff88; }
-        .produk p { margin-bottom: 10px; color: #ccc; }
-        .produk .deskripsi { font-size: 0.9em; margin-bottom: 20px; color: #aaa; }
-        .beli-btn { background: linear-gradient(45deg, #ff4444, #ff6666); color: #fff; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; transition: all 0.3s; font-weight: bold; box-shadow: 0 4px 10px rgba(255, 68, 68, 0.3); }
-        .beli-btn:hover { background: linear-gradient(45deg, #cc3333, #ff4444); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 68, 68, 0.5); }
-
-        /* Animasi Fade-In-Up */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Modal Pembayaran */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
-        .modal-content { background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 10% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 600px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); animation: modalFadeIn 0.5s ease; max-height: 80vh; overflow-y: auto; }
-        @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        .close { color: #aaa; float: right; font-size: 30px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
-        .close:hover { color: #fff; }
-        .pembayaran { margin: 25px 0; }
-        .pembayaran button { background: linear-gradient(45deg, #00ff88, #00ccff); color: #000; border: none; padding: 12px 20px; margin: 8px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3); }
-        .pembayaran button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 255, 136, 0.5); }
-        .pembayaran button i { margin-right: 8px; }
-        .qris-img { width: 500px; height: 700px; margin: 20px auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); } /* Diperbesar dari 400px ke 500px */
-        .rekening-list { text-align: left; margin: 20px 0; color: #ddd; }
-        .rekening-list h4 { color: #00ff88; margin-bottom: 10px; }
-        .rekening-list p { margin: 5px 0; }
-
-        /* Modal Check Input EA - Popup dengan Foto */
-        .modal-check { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
-        .modal-check-content { background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 800px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); animation: modalFadeIn 0.5s ease; max-height: 90vh; overflow-y: auto; }
-        .contoh-foto { margin-bottom: 20px; }
-        .contoh-foto img { width: 100%; max-width: 400px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); }
-        .foto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
-        .foto-item { background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 15px; text-align: center; transition: all 0.3s; }
-        .foto-item:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3); }
-        .foto-item img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; }
-        .foto-item h4 { margin-top: 10px; color: #00ff88; font-size: 1.1em; }
-
-        /* Footer */
-        footer { background: rgba(0, 0, 0, 0.9); padding: 30px; text-align: center; margin-top: 50px; }
-        footer p { color: #ccc; }
-        footer a { color: #00ff88; text-decoration: none; }
-        footer a:hover { color: #ff4444; }
-
-        /* Responsif untuk HP */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2em; }
-            h2 { font-size: 1.5em; }
-            .etalase { grid-template-columns: 1fr; gap: 20px; }
-            .produk { padding: 20px; }
-            #home { padding: 50px 20px; }
-            nav a { margin: 0 10px; }
-            .qris-img { width: 250px; height: 250px; } /* Diperbesar dari 150px ke 250px untuk HP */
-            .foto-grid { grid-template-columns: 1fr; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Robot Animasi */
-        .robot { position: fixed; bottom: 20px; right: 20px; width: 120px; height: 120px; background: url('https://via.placeholder.com/120x120?text=🤖') no-repeat center; background-size: cover; animation: bounce 3s infinite; z-index: 10; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-15px); } 60% { transform: translateY(-8px); } }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-        /* Grafik Trading Animasi (Opsional) */
-        .trading-chart { position: absolute; top: 50%; left: 10%; width: 200px; height: 100px; background: url('https://via.placeholder.com/200x100?text=Chart') no-repeat; opacity: 0.3; animation: float 4s infinite ease-in-out; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        .bg-shimmer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(0,212,255,0.03) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(139,92,246,0.02) 50%, transparent 70%),
+                radial-gradient(circle at 20% 20%, rgba(0,212,255,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139,92,246,0.04) 0%, transparent 50%);
+            animation: shimmerMove 15s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes shimmerMove {
+            0%, 100% { 
+                transform: translateX(-10%) translateY(-10%) scale(1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: translateX(10%) translateY(10%) scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(0,212,255,0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 80%; animation-delay: 1.5s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; top: 80%; left: 20%; animation-delay: 3s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; top: 40%; left: 90%; animation-delay: 4.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.2); opacity: 1; }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(10,10,15,0.95);
+            backdrop-filter: blur(25px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,212,255,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .nav-tab:hover {
+            color: #00d4ff;
+            background: rgba(0,212,255,0.1);
+            box-shadow: 0 5px 20px rgba(0,212,255,0.2);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,212,255,0.3);
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 5% 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6, #00d4ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            opacity: 0.9;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 5%;
+            transition: opacity 0.3s ease;
+        }
+
+        .products.hidden {
+            display: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 70px;
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 24px;
+            padding: 40px 30px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #00d4ff, #8b5cf6, transparent);
+            background-size: 300% 100%;
+            animation: borderShine 4s ease-in-out infinite;
+        }
+
+        @keyframes borderShine {
+            0%, 100% { background-position: 200% 0; }
+            50% { background-position: -200% 0; }
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            background: rgba(255,255,255,0.08);
+            border-color: #00d4ff;
+            box-shadow: 0 30px 60px rgba(0,212,255,0.25);
+        }
+
+        .product-type {
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(0,212,255,0.15);
+            color: #00d4ff;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .product-hedge .product-type {
+            background: rgba(139,92,246,0.15);
+            color: #8b5cf6;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .product-features {
+            margin-bottom: 35px;
+            opacity: 0.92;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+            font-size: 15.5px;
+        }
+
+        .feature i {
+            color: #00d4ff;
+            margin-right: 14px;
+            width: 22px;
+            font-size: 15px;
+        }
+
+        .product-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 35px;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .buy-btn {
+            padding: 18px 32px;
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .buy-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .buy-btn:hover::before {
+            left: 100%;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px rgba(0,212,255,0.4);
+        }
+
+        .tiktok-btn {
+            padding: 16px 28px;
+            background: rgba(255,255,255,0.08);
+            color: #e2e8f0;
+            border: 1px solid rgba(0,212,255,0.3);
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            backdrop-filter: blur(15px);
+        }
+
+        .tiktok-btn:hover {
+            background: rgba(0,212,255,0.15);
+            border-color: #00d4ff;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,212,255,0.25);
+        }
+
+        .tiktok-btn i {
+            color: #ff0050;
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-tabs {
+                gap: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Expert Advisor Trading Robot Store</h1>
-        <nav>
-            <a href="#home"><i class="fas fa-home"></i> Home</a>
-            <a href="#produk"><i class="fas fa-shopping-cart"></i> Produk</a>
-            <a href="#kontak"><i class="fas fa-envelope"></i> Kontak</a>
-        </nav>
-    </header>
+    <div class="bg-shimmer"></div>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
-    <section id="home" style="position: relative;">
-        <div class="trading-chart"></div> <!-- Animasi grafik opsional -->
-        <h2>Selamat Datang di Dunia Trading Otomatis</h2>
-         </section>
-
-    <section id="produk" class="etalase">
-        <div class="produk">
-            <img src="PROEQUIITY.png" alt="Robot Basic">
-            <h3>Robot Hedge Pro Equity</h3>
-            <p>Harga: Rp 400.000</p>
-            <button class="beli-btn" onclick="bukaModal('Robot Hedge Pro Equity')">Beli Sekarang</button>
-
-<a href="https://vt.tiktok.com/ZS5RbnQtw/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-robot"></i> FX Elite
+            </div>
+            <div class="nav-tabs">
+                <a href="#" class="nav-tab active" onclick="showSection(event, 'pending')">Pending Order</a>
+                <a href="#" class="nav-tab" onclick="showSection(event, 'hedge')">Hedge</a>
+            </div>
         </div>
-        <div class="produk">
-            <img src="HEDGEPROEA.png" alt="Robot Pro">
-            <h3>Robot Hedge Pro Counter Langusng</h3>
-            <p>Harga: Rp 550.000</p>
-            <button class="beli-btn" onclick="bukaModal('Robot Hedge Pro Counter Langusng')">Beli Sekarang</button>
-    
+    </nav>
 
-<a href="https://vt.tiktok.com/ZS5RgQ92X/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>EA Forex Premium</h1>
+            <p>Robot trading profesional dengan strategi Pending Order dan Hedge. Dirancang untuk profit stabil dengan risiko terkendali. Ingat, profit wajar lebih realistis daripada berharap keuntungan besar tanpa risiko.</p>
         </div>
-        <div class="produk">
-            <img src="folowtrend.png" alt="Robot Premium">
-            <h3>Robot Folow Trend</h3>
-             <p>Harga: Rp 500.000</p>
-            <button class="beli-btn" onclick="bukaModal('Robot Trading Robot Folow Trend')">Beli Sekarang</button>
-
-
-<a href="https://vt.tiktok.com/ZS5RghdJ6/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
-        </div>
-        <div class="produk">
-            <img src="BSSL.png" alt="Robot Ultimate">
-            <h3>Robot BuyStopSellStopSl+</h3>
-            <p>Harga: Rp 450.000</p>
-            <button class="beli-btn" onclick="bukaModal('Robot Trading Robot BuyStopSellStopSl+')">Beli Sekarang</button>
-
-<a href="https://vt.tiktok.com/ZS5RgsVaA/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
-        </div>
-     <div class="produk">
-    <img src="SCALPER.png" alt="Robot Scalper Pro">
-    <h3>Robot SCALPER PRO BUYSELSTOP V3 Pro</h3>
-    <p>Harga: <span style="text-decoration: line-through; color: #ff6666;">Rp 750.000</span> <span style="color: #00ff88; font-weight: bold;">Rp 600.000</span></p>
-    <button class="beli-btn" onclick="bukaModal('Robot SCALPER PRO BUYSELSTOP V3 Pro')">Beli Sekarang</button>
-
-<a href="https://vt.tiktok.com/ZS5RgokPD/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-        </div>
-     <div class="produk">
-    <img src="SCALPER.png" alt="Robot Scalper Pro">
-    <h3>BUYSELL STOP DUAL ENTRY</h3>
-    <p>Harga: <span style="text-decoration: line-through; color: #ff6666;">Rp470.000</span> <span style="color: #00ff88; font-weight: bold;">Rp 420.000</span></p>
-    <button class="beli-btn" onclick="bukaModal('BUYSELLSTOP DUAL ENTRY')">Beli Sekarang</button>
-
-<a href="https://vt.tiktok.com/ZSmE6mWby/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-        </div>
-     <div class="produk">
-    <img src="HEDGEPROEA.png" alt="Robot Scalper Pro">
-    <h3>HEDGE ATAS BAWAH HIGH RISK</h3>
-    <p>Harga: <span style="text-decoration: line-through; color: #ff6666;">Rp 900.000</span> <span style="color: #00ff88; font-weight: bold;">Rp 690.000</span></p>
-    <button class="beli-btn" onclick="bukaModal('HEDGE ATAS BAWAH HIGH RISK')">Beli Sekarang</button>
-
-<a href="https://vt.tiktok.com/ZSmE6ScgN/"
-   target="_blank"
-   class="video-btn">
-   <i class="fab fa-tiktok"></i> Contoh Video
-</a>
-
-</div>
-
-</div>
-
     </section>
 
-    <!-- Modal Pembayaran -->
-    <div id="modalPembayaran" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="tutupModal()">&times;</span>
-            <h2>Pilih Metode Pembayaran</h2>
-            <p id="produkDipilih" style="color: #00ff88; font-weight: bold;"></p>
-            <div class="pembayaran">
-                <button onclick="pilihMetode('QRIS')"><i class="fas fa-qrcode"></i> QRIS</button>
-                <button onclick="pilihMetode('SeaBank')"><i class="fas fa-university"></i> SeaBank</button>
-                <button onclick="pilihMetode('Dana')"><i class="fas fa-wallet"></i> Dana</button>
-                <button onclick="pilihMetode('Crypto Tron (TRC20)')"><i class="fas fa-chart-line"></i> Crypto Tron (TRC20)</button>
-            </div>
-            <div id="detailPembayaran" style="display: none;">
-                <img id="qrisImg" class="qris-img" src="" alt="QRIS" style="display: none;">
-                <div class="rekening-list" id="rekeningList" style="display: none;">
-                    <h4>Informasi Rekening:</h4>
-                    <p id="rekeningDetail"></p>
+    <!-- Products Pending -->
+    <section id="pending-section" class="products">
+        <h2 class="section-title">Pending Order EA (4 Best Seller)</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-type">BuyStopSellStopSl+</div>
+                <h3 class="product-title">Buy Sell Stop SL+ Dual Entry SL+</h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-bolt"></i> Scalping M1-M5</div>
+                    <div class="feature"><i class="fas fa-shield-alt"></i> No Martingale</div>
+                    <div class="feature"><i class="fas fa-chart-line"></i> Dual Limit Order</div>
                 </div>
-                              <button onclick="lanjutUpload()" style="background: linear-gradient(45deg, #00ff88, #00ccff); color: #000; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 20px;">Lanjut</button>
-                <div id="uploadProof" style="display: none; margin-top: 20px;">
-                    <p style="color: #00ff88; font-weight: bold;">Kirim Bukti Pembayaran via WhatsApp:</p>
-                    <button onclick="kirimBukti()" style="background: linear-gradient(45deg, #ff4444, #ff6666); color: #fff; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 10px;">Chat WhatsApp</button>
+                <div class="product-price">Rp 450.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSugmbF2G/" class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-type">BuyStopSellStopSl+</div>
+                <h3 class="product-title">Buy Sell Stop SL+ Single Entry</h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-th"></i> Scalping M1-M5</div>
+                    <div class="feature"><i class="fas fa-balance-scale"></i> Money Management</div>
+                    <div class="feature"><i class="fas fa-trophy"></i> Single Entry</div>
+                </div>
+                <div class="product-price">Rp 420.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSugmqNTL/" class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-type">Scalper Pro</div>
+                <h3 class="product-title">Buystop SellStop V3 Hedging</h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-crosshairs"></i> Scalping M1-M5</div>
+                    <div class="feature"><i class="fas fa-filter"></i> Bisa Hedge Bisa SL+</div>
+                    <div class="feature"><i class="fas fa-lock"></i> Layering & Single Entry Sesuaikan Settingan</div>
+                </div>
+                <div class="product-price">Rp 500.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSugm942b/" class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-type">Trend Sniper</div>
+                <h3 class="product-title">Signle Sniper Entry Signal Indikator</h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-bullseye"></i> Trend Following</div>
+                    <div class="feature"><i class="fas fa-brain"></i> AI Signals</div>
+                    <div class="feature"><i class="fas fa-star"></i> Ada 6 Indikator Dan SL+</div>
+                </div>
+                <div class="product-price">Rp 480.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSugm7cBu/" class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Modal Detail Foto -->
-    <div id="modalDetailFoto" class="modal-check">
-        <div class="modal-check-content">
-            <span class="close" onclick="tutupModalDetailFoto()">&times;</span>
-            <h2 id="detailTitle" style="color: #00ff88; margin-bottom: 20px;"></h2>
-            <img id="detailImg" src="" alt="Detail Foto" style="width: 100%; max-width: 600px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+    <!-- Products Hedge -->
+    <section id="hedge-section" class="products" style="display: none;">
+        <h5 class="section-title">Hedge Strategy EA (5 Premium)</h5>
+        <div class="products-grid">
+            <div class="product-card product-hedge">
+                <div class="product-type">Hedge Basic Marti</div>
+                <h3 class="product-title">Hedge Pro Equity Basic Marti</h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-exchange-alt"></i> Smart Hedging</div>
+                    <div class="feature"><i class="fas fa-shield-alt"></i> Hedge Counter</div>
+                    <div class="feature"><i class="fas fa-undo"></i> Cocok Untuk Acc cent Buat Pemula</div>
+                </div>
+                <div class="product-price">Rp 450.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSugm9vP9/" class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card product-hedge">
+                <div class="product-type">Hedge Grid Pro</div>
+                <h3 class="product-title">Hedge Pro Counter</h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-layer-group"></i> Grid Counter Agresive</div>
+                    <div class="feature"><i class="fas fa-chart-line"></i> Cocok Acc Cent Sideways</div>
+                    <div class="feature"><i class="fas fa-cogs"></i> Auto Lot Scaling</div>
+                </div>
+                <div class="product-price">Rp 550.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSugujrke/" class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card product-hedge">
+                <div class="product-type">Smart Hedge Trend</div>
+                <h3 class="product-title">Hedge Atas Bawah Candle</h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-brain"></i>Grid Ikut Trend Harga</div>
+                    <div class="feature"><i class="fas fa-balance-scale"></i> Auto Balance Risk</div>
+                    <div class="feature"><i class="fas fa-robot"></i> Full Auto Trading</div>
+                </div>
+                <div class="product-price">Rp 650.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSugukC81/" class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card product-hedge">
+                <div class="product-type">Hedge Scalper X</div>
+                <h3 class="product-title">Hedge Marti Grid v2</h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-bolt"></i> Fast Scalping</div>
+                    <div class="feature"><i class="fas fa-shield-alt"></i> Ikut Harga Marti Cepat Close Profit</div>
+                    <div class="feature"><i class="fas fa-sync-alt"></i> Auto Re-entry Full Auto</div>
+                </div>
+                <div class="product-price">Rp 700.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSuguef5F/ " class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
+                </div>
+            </div>
+            <div class="product-card product-hedge">
+                <div class="product-type">Hedge Scalper</div>
+                <h3 class="product-title">Hedge Folow Trend </h3>
+                <div class="product-features">
+                    <div class="feature"><i class="fas fa-bolt"></i> Fast Scalping</div>
+                    <div class="feature"><i class="fas fa-shield-alt"></i> Hedge Ikuti Harga</div>
+                    <div class="feature"><i class="fas fa-sync-alt"></i> Auto Re-entry </div>
+                </div>
+                <div class="product-price">Rp 580.000</div>
+                <div class="buttons-container">
+                    <button class="buy-btn">Beli Sekarang</button>
+                    <a href="https://vt.tiktok.com/ZSuguM6JK/" class="tiktok-btn" target="_blank">
+                        <i class="fab fa-tiktok"></i> Lihat Video
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Robot Animasi -->
-    <div class="robot"></div>
+<script>
+let selectedProduct = {};
+let selectedMethod = "";
 
-    <footer id="kontak">
-        <p>&copy; 2024 Expert Advisor Trading Robot Store. Semua hak dilindungi.</p>
-        <p>Hubungi kami: <a href="mailto:miminnfxea@gmail.com">support:miminnfxea@gmail.com</a> | WhatsApp: +62 812-5263-6815</p>
-    </footer>
+// ===== DATA PEMBAYARAN (EDIT INI) =====
+const paymentData = {
+    "DANA": {
+        number: "082150102225",
+        name: "M.Dwi Riski"
+    },
+    "SEABANK": {
+        number: "901437148557",
+        name: "M Dwi Riski"
+    },
+    "BLU BCA": {
+        number: "0086 5709 4621",
+        name: "M Dwi Riski"
+    },
+    "USDT TRC20": {
+        number: "TQj99hTCV3bRqPTGi4qNxf1TQT7k9t5xxg",
+        name: "USDT TRC20 Network"
+    }
+};
 
-    <script>
-        let produkTerpilih = '';
-        let metodeTerpilih = '';
-
-        function bukaModal(produk) {
-            produkTerpilih = produk;
-            metodeTerpilih = '';
-            document.getElementById('modalPembayaran').style.display = 'block';
-            document.getElementById('produkDipilih').innerText = 'Produk: ' + produk;
-            document.getElementById('detailPembayaran').style.display = 'none'; // Sembunyikan detail awal
-        }
-
-        function tutupModal() {
-            document.getElementById('modalPembayaran').style.display = 'none';
-            document.getElementById('detailPembayaran').style.display = 'none';
-        }
-
-        function pilihMetode(metode) {
-            metodeTerpilih = metode;
-            const detailDiv = document.getElementById('detailPembayaran');
-            const qrisImg = document.getElementById('qrisImg');
-            const rekeningList = document.getElementById('rekeningList');
-            const rekeningDetail = document.getElementById('rekeningDetail');
-
-            detailDiv.style.display = 'block';
-
-            if (metode === 'QRIS') {
-                qrisImg.src = 'qrr.jpg'; // Ganti dengan URL gambar QRIS asli Anda
-                qrisImg.style.display = 'block';
-                rekeningList.style.display = 'none';
-            } else if (metode === 'SeaBank') {
-                qrisImg.style.display = 'none'; // Hapus gambar QR untuk SeaBank
-                rekeningList.style.display = 'block';
-                rekeningDetail.innerHTML = '<strong>SeaBank:</strong><br>No. Rekening: 901437148557 <br>Atas Nama: M.DWI RISKI'; // Ganti dengan info rekening asli
-            } else if (metode === 'Dana') {
-                qrisImg.style.display = 'none'; // Hapus gambar QR untuk Dana
-                rekeningList.style.display = 'block';
-                rekeningDetail.innerHTML = '<strong>Dana:</strong><br>No. Rekening: 082150102225 <br>Atas Nama: M.DWI RISKI'; // Ganti dengan info rekening asli
-            }
-            else if (metode === 'Crypto Tron (TRC20)') {
-                qrisImg.src = 'qrtron.png '; // Ganti dengan file QR pembayaran Trend
-                qrisImg.style.display = 'block';
-                rekeningList.style.display = 'block'; 
-             rekeningDetail.innerHTML = '<strong>Trend:</strong><br>Alamat/Addres : TQj99hTCV3bRqPTGi4qNxf1TQT7k9t5xxg'; // Ganti dengan alamat asli
+// ================= NAV =================
+function showSection(e, type) {
+    e.preventDefault();
+    const pendingSection = document.getElementById('pending-section');
+    const hedgeSection = document.getElementById('hedge-section');
+    const tabs = document.querySelectorAll('.nav-tab');
+    
+    pendingSection.style.display = 'none';
+    hedgeSection.style.display = 'none';
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    if (type === 'pending') {
+        pendingSection.style.display = 'block';
+        tabs[0].classList.add('active');
+    } else {
+        hedgeSection.style.display = 'block';
+        tabs[1].classList.add('active');
+    }
 }
 
-        }
+// ================= BELI =================
+function buyProduct(btn) {
+    const card = btn.closest('.product-card');
+    const title = card.querySelector('.product-title').textContent.trim();
+    const price = card.querySelector('.product-price').textContent.trim();
 
-        function lanjutUpload() {
-            document.getElementById('uploadProof').style.display = 'block';
-        }
+    selectedProduct = { title, price };
 
-        function kirimBukti() {
-            // Buka WhatsApp dengan pesan untuk kirim bukti pembayaran.
-            const whatsappUrl = 'https://wa.me/6281252636815?text=Hai, saya sudah transfer untuk produk ' + encodeURIComponent(produkTerpilih) + ' menggunakan metode ' + encodeURIComponent(metodeTerpilih) + '. Saya akan kirim bukti pembayaran.';
-            window.open(whatsappUrl, '_blank');
-        }
+    document.getElementById('payment-modal').style.display = 'flex';
 
-        function bukaModalCheck() {
-            document.getElementById('modalCheck').style.display = 'block';
-        }
+    // reset tampilan
+    document.getElementById('payment-list').style.display = 'flex';
+    document.getElementById('payment-detail').style.display = 'none';
+}
 
-        function tutupModalCheck() {
-            document.getElementById('modalCheck').style.display = 'none';
-        }
+// ================= CLOSE =================
+function closeModal() {
+    document.getElementById('payment-modal').style.display = 'none';
+}
 
-        function bukaDetailFoto(src, title) {
-            document.getElementById('detailImg').src = src;
-            document.getElementById('detailTitle').innerText = title;
-            document.getElementById('modalDetailFoto').style.display = 'block';
-        }
+// ================= PILIH PAYMENT =================
+function selectPayment(method) {
+    selectedMethod = method;
 
-        function tutupModalDetailFoto() {
-            document.getElementById('modalDetailFoto').style.display = 'none';
-        }
+    const data = paymentData[method];
 
-        // Tutup modal jika klik di luar
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('modalPembayaran')) {
-                tutupModal();
-            }
-            if (event.target == document.getElementById('modalCheck')) {
-                tutupModalCheck();
-            }
-            if (event.target == document.getElementById('modalDetailFoto')) {
-                tutupModalDetailFoto();
-            }
-        }
+    // sembunyikan list
+    document.getElementById('payment-list').style.display = 'none';
 
-        // Animasi scroll sederhana
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.produk');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    el.style.animationDelay = '0s';
-                }
-            });
+    // tampilkan detail
+    document.getElementById('payment-detail').style.display = 'block';
+
+    document.getElementById('pay-title').innerText = "Metode: " + method;
+    document.getElementById('pay-number').innerText = "Nomor / Wallet: " + data.number;
+    document.getElementById('pay-name').innerText = "Atas Nama: " + data.name;
+}
+
+// ================= KE WA =================
+function goWA() {
+    const phoneNumber = '6281252636815'; // GANTI NOMOR LU
+
+    const message = `Halo admin, saya SUDAH TRANSFER:
+
+Produk: ${selectedProduct.title}
+Harga: ${selectedProduct.price}
+Metode: ${selectedMethod}
+
+Mohon dicek ya 🙏`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, '_blank');
+    closeModal();
+}
+
+// ================= INIT =================
+document.addEventListener('DOMContentLoaded', function() {
+    const buyBtns = document.querySelectorAll('.buy-btn');
+    buyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            buyProduct(this);
         });
-    </script>
+    });
+
+    showSection({preventDefault: () => {}}, 'pending');
+});
+</script>
+
+<!-- ================= PAYMENT MODAL ================= -->
+<div id="payment-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:2000; justify-content:center; align-items:center;">
+    
+    <div style="background:#0f172a; padding:30px; border-radius:20px; width:90%; max-width:420px; text-align:center; border:1px solid rgba(0,212,255,0.3);">
+        
+        <h2 style="margin-bottom:20px;">Pilih Pembayaran</h2>
+
+        <!-- LIST METODE -->
+        <div id="payment-list" style="display:flex; flex-direction:column; gap:12px;">
+            <button onclick="selectPayment('DANA')" class="buy-btn">DANA</button>
+            <button onclick="selectPayment('SEABANK')" class="buy-btn">SeaBank</button>
+            <button onclick="selectPayment('BLU BCA')" class="buy-btn">Blu BCA</button>
+            <button onclick="selectPayment('USDT TRC20')" class="buy-btn">Crypto USDT (TRC20)</button>
+        </div>
+
+        <!-- DETAIL PEMBAYARAN -->
+        <div id="payment-detail" style="display:none; margin-top:20px; text-align:left;">
+            <h3 id="pay-title"></h3>
+            <p id="pay-number"></p>
+            <p id="pay-name"></p>
+
+            <button onclick="goWA()" class="buy-btn" style="margin-top:15px;">Saya Sudah Transfer</button>
+        </div>
+
+        <button onclick="closeModal()" style="margin-top:20px; background:#ef4444; border:none; padding:10px 20px; border-radius:10px; color:white; cursor:pointer;">
+            Tutup
+        </button>
+    </div>
+</div>
+</div>
 </body>
 </html>
-
