@@ -29,10 +29,10 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(45deg, transparent 30%, rgba(0,212,255,0.03) 50%, transparent 70%),
-                linear-gradient(-45deg, transparent 30%, rgba(139,92,246,0.02) 50%, transparent 70%),
-                radial-gradient(circle at 20% 20%, rgba(0,212,255,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139,92,246,0.04) 0%, transparent 50%);
+                linear-gradient(45deg, transparent 30%, rgba(255,215,0,0.03) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(255,193,7,0.02) 50%, transparent 70%),
+                radial-gradient(circle at 20% 20%, rgba(255,215,0,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,193,7,0.04) 0%, transparent 50%);
             animation: shimmerMove 15s ease-in-out infinite;
             z-index: -1;
         }
@@ -60,9 +60,10 @@
 
         .particle {
             position: absolute;
-            background: rgba(0,212,255,0.6);
+            background: rgba(255,215,0,0.7);
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(255,215,0,0.5);
         }
 
         .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
@@ -83,52 +84,25 @@
             background: rgba(10,10,15,0.95);
             backdrop-filter: blur(25px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,212,255,0.3);
+            border-bottom: 1px solid rgba(255,215,0,0.4);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
         .logo {
+            position: absolute;
+            left: 5%;
             font-size: 24px;
             font-weight: 700;
-            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-tab {
-            padding: 12px 24px;
-            color: #94a3b8;
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            backdrop-filter: blur(10px);
-            cursor: pointer;
-        }
-
-        .nav-tab:hover {
-            color: #00d4ff;
-            background: rgba(0,212,255,0.1);
-            box-shadow: 0 5px 20px rgba(0,212,255,0.2);
-        }
-
-        .nav-tab.active {
-            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
-            color: white;
-            box-shadow: 0 8px 25px rgba(0,212,255,0.3);
         }
 
         .hero {
@@ -146,14 +120,16 @@
         }
 
         .hero h1 {
-            font-size: 3.8rem;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
             font-weight: 700;
             margin-bottom: 25px;
-            background: linear-gradient(45deg, #00d4ff, #8b5cf6, #00d4ff);
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientShift 4s ease infinite;
+            text-shadow: 0 0 30px rgba(255,215,0,0.5);
+            line-height: 1.2;
         }
 
         @keyframes gradientShift {
@@ -162,7 +138,7 @@
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
             margin-bottom: 0;
             opacity: 0.9;
             line-height: 1.8;
@@ -172,39 +148,53 @@
         .products {
             max-width: 1200px;
             margin: 0 auto 100px;
-            padding: 0 5%;
+            padding: 0 5% 100px;
             transition: opacity 0.3s ease;
-        }
-
-        .products.hidden {
-            display: none;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 600;
-            margin-bottom: 70px;
-            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: #facc15;
+            margin-bottom: 70px;
+            font-weight: 500;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
+            gap: clamp(25px, 4vw, 35px);
+            align-items: stretch;
         }
 
         .product-card {
             background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(0,212,255,0.2);
+            border: 1px solid rgba(255,215,0,0.3);
             border-radius: 24px;
-            padding: 40px 30px;
+            padding: clamp(30px, 5vw, 40px) clamp(20px, 3vw, 30px);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(15px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
         }
 
         .product-card::before {
@@ -214,9 +204,10 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, transparent, #00d4ff, #8b5cf6, transparent);
+            background: linear-gradient(90deg, transparent, #FFD700, #FFA500, transparent);
             background-size: 300% 100%;
             animation: borderShine 4s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(255,215,0,0.6);
         }
 
         @keyframes borderShine {
@@ -227,83 +218,100 @@
         .product-card:hover {
             transform: translateY(-15px) scale(1.02);
             background: rgba(255,255,255,0.08);
-            border-color: #00d4ff;
-            box-shadow: 0 30px 60px rgba(0,212,255,0.25);
+            border-color: #FFD700;
+            box-shadow: 0 30px 60px rgba(255,215,0,0.35);
         }
 
         .product-type {
             display: inline-block;
-            padding: 10px 24px;
-            background: rgba(0,212,255,0.15);
-            color: #00d4ff;
+            padding: clamp(8px, 1.5vw, 10px) clamp(20px, 3vw, 24px);
+            background: rgba(255,215,0,0.2);
+            color: #FFD700;
             border-radius: 30px;
-            font-size: 13px;
+            font-size: clamp(11px, 2vw, 13px);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             margin-bottom: 25px;
             backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(255,215,0,0.3);
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
         }
 
         .product-hedge .product-type {
-            background: rgba(139,92,246,0.15);
-            color: #8b5cf6;
+            background: rgba(255,165,0,0.25);
+            color: #FFA500;
+            box-shadow: 0 0 15px rgba(255,165,0,0.4);
         }
 
         .product-title {
-            font-size: 1.8rem;
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
             font-weight: 600;
             margin-bottom: 20px;
             color: #fff;
+            line-height: 1.3;
+            flex-grow: 1;
         }
 
         .product-features {
             margin-bottom: 35px;
             opacity: 0.92;
+            flex-grow: 1;
         }
 
         .feature {
             display: flex;
             align-items: center;
             margin-bottom: 14px;
-            font-size: 15.5px;
+            font-size: clamp(14px, 2.2vw, 15.5px);
         }
 
         .feature i {
-            color: #00d4ff;
+            color: #FFD700;
             margin-right: 14px;
             width: 22px;
             font-size: 15px;
+            text-shadow: 0 0 8px rgba(255,215,0,0.7);
+        }
+
+        .product-hedge .feature i {
+            color: #FFA500;
+            text-shadow: 0 0 8px rgba(255,165,0,0.7);
         }
 
         .product-price {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 2.5rem);
             font-weight: 700;
-            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 35px;
+            text-shadow: 0 0 20px rgba(255,215,0,0.6);
         }
 
         .buttons-container {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: clamp(12px, 2vw, 18px);
+            margin-top: auto;
         }
 
         .buy-btn {
-            padding: 18px 32px;
-            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
-            color: white;
+            padding: clamp(14px, 2.5vw, 18px) clamp(25px, 4vw, 32px);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
             border: none;
             border-radius: 16px;
-            font-size: 17px;
+            font-size: clamp(15px, 2.5vw, 17px);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+            text-shadow: none;
+            flex-shrink: 0;
         }
 
         .buy-btn::before {
@@ -313,7 +321,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
             transition: left 0.6s;
         }
 
@@ -323,16 +331,16 @@
 
         .buy-btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 25px 50px rgba(0,212,255,0.4);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.6);
         }
 
         .tiktok-btn {
-            padding: 16px 28px;
+            padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
             background: rgba(255,255,255,0.08);
             color: #e2e8f0;
-            border: 1px solid rgba(0,212,255,0.3);
+            border: 1px solid rgba(255,215,0,0.4);
             border-radius: 16px;
-            font-size: 16px;
+            font-size: clamp(14px, 2.2vw, 16px);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.4s ease;
@@ -342,37 +350,82 @@
             gap: 12px;
             text-decoration: none;
             backdrop-filter: blur(15px);
+            flex-shrink: 0;
         }
 
         .tiktok-btn:hover {
-            background: rgba(0,212,255,0.15);
-            border-color: #00d4ff;
+            background: rgba(255,215,0,0.2);
+            border-color: #FFD700;
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0,212,255,0.25);
+            box-shadow: 0 15px 35px rgba(255,215,0,0.35);
         }
 
         .tiktok-btn i {
-            color: #ff0050;
-            font-size: 20px;
+            color: #FFD700;
+            font-size: clamp(16px, 2.8vw, 20px);
+            text-shadow: 0 0 10px rgba(255,215,0,0.7);
+        }
+
+        /* Modal Responsive */
+        #payment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #payment-modal > div {
+            background: #0f172a;
+            padding: clamp(20px, 5vw, 30px);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.4);
+            box-shadow: 0 20px 40px rgba(255,215,0,0.2);
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
+            .logo {
+                left: 20px;
+                font-size: clamp(18px, 5vw, 20px);
             }
             
-            .nav-tabs {
-                gap: 20px;
+            .hero {
+                padding: 100px 5% 40px;
+                min-height: 60vh;
             }
-            
+
+            .products {
+                padding: 0 5% 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
             }
             
-            .section-title {
-                font-size: 2.2rem;
+            .product-card {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (min-height: 900px) {
+            .hero {
+                min-height: 80vh;
             }
         }
     </style>
@@ -392,10 +445,6 @@
             <div class="logo">
                 <i class="fas fa-robot"></i> FX Elite
             </div>
-            <div class="nav-tabs">
-                <a href="#" class="nav-tab active" onclick="showSection(event, 'pending')">Pending Order</a>
-                <a href="#" class="nav-tab" onclick="showSection(event, 'hedge')">Hedge</a>
-            </div>
         </div>
     </nav>
 
@@ -407,10 +456,12 @@
         </div>
     </section>
 
-    <!-- Products Pending -->
-    <section id="pending-section" class="products">
-        <h2 class="section-title">Pending Order EA (4 Best Seller)</h2>
+    <!-- All Products -->
+    <section id="products-section" class="products">
+        <h2 class="section-title">EA Premium Collection (8 Best Seller)</h2>
+        <p class="section-subtitle">Pending Order + Hedge Strategy | Scalping M1-M5 | Profit Stabil</p>
         <div class="products-grid">
+            <!-- Pending Order Products -->
             <div class="product-card">
                 <div class="product-type">BuyStopSellStopSl+</div>
                 <h3 class="product-title">Buy Sell Stop SL+ Dual Entry SL+</h3>
@@ -478,29 +529,6 @@
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Products Hedge -->
-    <section id="hedge-section" class="products" style="display: none;">
-        <h5 class="section-title">Hedge Strategy EA (5 Premium)</h5>
-        <div class="products-grid">
-            <div class="product-card product-hedge">
-                <div class="product-type">Hedge Basic Marti</div>
-                <h3 class="product-title">Hedge Pro Equity Basic Marti</h3>
-                <div class="product-features">
-                    <div class="feature"><i class="fas fa-exchange-alt"></i> Smart Hedging</div>
-                    <div class="feature"><i class="fas fa-shield-alt"></i> Hedge Counter</div>
-                    <div class="feature"><i class="fas fa-undo"></i> Cocok Untuk Acc cent Buat Pemula</div>
-                </div>
-                <div class="product-price">Rp 450.000</div>
-                <div class="buttons-container">
-                    <button class="buy-btn">Beli Sekarang</button>
-                    <a href="https://vt.tiktok.com/ZSugm9vP9/" class="tiktok-btn" target="_blank">
-                        <i class="fab fa-tiktok"></i> Lihat Video
-                    </a>
-                </div>
-            </div>
 
             <div class="product-card product-hedge">
                 <div class="product-type">Hedge Grid Pro</div>
@@ -547,18 +575,19 @@
                 <div class="product-price">Rp 700.000</div>
                 <div class="buttons-container">
                     <button class="buy-btn">Beli Sekarang</button>
-                    <a href="https://vt.tiktok.com/ZSuguef5F/ " class="tiktok-btn" target="_blank">
+                    <a href="https://vt.tiktok.com/ZSuguef5F/" class="tiktok-btn" target="_blank">
                         <i class="fab fa-tiktok"></i> Lihat Video
                     </a>
                 </div>
             </div>
+
             <div class="product-card product-hedge">
                 <div class="product-type">Hedge Scalper</div>
-                <h3 class="product-title">Hedge Folow Trend </h3>
+                <h3 class="product-title">Hedge Folow Trend</h3>
                 <div class="product-features">
                     <div class="feature"><i class="fas fa-bolt"></i> Fast Scalping</div>
                     <div class="feature"><i class="fas fa-shield-alt"></i> Hedge Ikuti Harga</div>
-                    <div class="feature"><i class="fas fa-sync-alt"></i> Auto Re-entry </div>
+                    <div class="feature"><i class="fas fa-sync-alt"></i> Auto Re-entry</div>
                 </div>
                 <div class="product-price">Rp 580.000</div>
                 <div class="buttons-container">
@@ -586,31 +615,15 @@ const paymentData = {
         number: "0086 5709 4621",
         name: "M Dwi Riski"
     },
+    "BANK BRI": {
+        number: "7872 0100 6720 509",
+        name: "M Dwi Riski"
+    },
     "USDT TRC20": {
         number: "TQj99hTCV3bRqPTGi4qNxf1TQT7k9t5xxg",
         name: "USDT TRC20 Network"
     }
 };
-
-// ================= NAV =================
-function showSection(e, type) {
-    e.preventDefault();
-    const pendingSection = document.getElementById('pending-section');
-    const hedgeSection = document.getElementById('hedge-section');
-    const tabs = document.querySelectorAll('.nav-tab');
-    
-    pendingSection.style.display = 'none';
-    hedgeSection.style.display = 'none';
-    tabs.forEach(tab => tab.classList.remove('active'));
-    
-    if (type === 'pending') {
-        pendingSection.style.display = 'block';
-        tabs[0].classList.add('active');
-    } else {
-        hedgeSection.style.display = 'block';
-        tabs[1].classList.add('active');
-    }
-}
 
 // ================= BELI =================
 function buyProduct(btn) {
@@ -648,7 +661,16 @@ function selectPayment(method) {
     document.getElementById('pay-number').innerText = "Nomor / Wallet: " + data.number;
     document.getElementById('pay-name').innerText = "Atas Nama: " + data.name;
 }
+function copyNumber() {
+    const text = document
+        .getElementById('pay-number')
+        .innerText
+        .replace('Nomor / Wallet: ', '');
 
+    navigator.clipboard.writeText(text);
+
+    alert("Nomor berhasil disalin!");
+}
 // ================= KE WA =================
 function goWA() {
     const phoneNumber = '6281252636815'; // GANTI NOMOR LU
@@ -675,39 +697,103 @@ document.addEventListener('DOMContentLoaded', function() {
             buyProduct(this);
         });
     });
-
-    showSection({preventDefault: () => {}}, 'pending');
 });
 </script>
 
 <!-- ================= PAYMENT MODAL ================= -->
-<div id="payment-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:2000; justify-content:center; align-items:center;">
-    
-    <div style="background:#0f172a; padding:30px; border-radius:20px; width:90%; max-width:420px; text-align:center; border:1px solid rgba(0,212,255,0.3);">
-        
-        <h2 style="margin-bottom:20px;">Pilih Pembayaran</h2>
+<div id="payment-modal" style="display:none;">
+    <div>
+        <h2 style="margin-bottom:20px; color:#FFD700; text-shadow: 0 0 10px rgba(255,215,0,0.5);">Pilih Pembayaran</h2>
 
         <!-- LIST METODE -->
         <div id="payment-list" style="display:flex; flex-direction:column; gap:12px;">
-            <button onclick="selectPayment('DANA')" class="buy-btn">DANA</button>
-            <button onclick="selectPayment('BLU BCA')" class="buy-btn">Blu BCA</button>
-            <button onclick="selectPayment('USDT TRC20')" class="buy-btn">Crypto USDT (TRC20)</button>
+           <button onclick="selectPayment('DANA')" class="buy-btn">DANA</button>
+
+<button onclick="selectPayment('BLU BCA')" class="buy-btn">Blu BCA</button>
+
+<button onclick="selectPayment('BANK BRI')" class="buy-btn">BANK BRI</button>
+
+<button onclick="selectPayment('USDT TRC20')" class="buy-btn">
+    Crypto USDT (TRC20)
+</button>
         </div>
 
-        <!-- DETAIL PEMBAYARAN -->
-        <div id="payment-detail" style="display:none; margin-top:20px; text-align:left;">
-            <h3 id="pay-title"></h3>
-            <p id="pay-number"></p>
-            <p id="pay-name"></p>
+      <!-- DETAIL PEMBAYARAN -->
+<div id="payment-detail" style="display:none; margin-top:20px; text-align:left;">
 
-            <button onclick="goWA()" class="buy-btn" style="margin-top:15px;">Saya Sudah Transfer</button>
+    <h3 id="pay-title" style="color:#FFD700; margin-bottom:10px;"></h3>
+
+    <div style="
+    background:#1f2937;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:12px;
+    border:1px solid rgba(255,215,0,0.2);
+    ">
+
+        <small style="color:#94a3b8;">Nomor / Wallet</small>
+
+        <div style="
+        display:flex;
+        gap:10px;
+        margin-top:8px;
+        align-items:center;
+        ">
+
+            <p id="pay-number" style="
+            font-size:16px;
+            font-weight:600;
+            color:#facc15;
+            word-break:break-word;
+            flex:1;
+            margin:0;
+            "></p>
+
+            <button onclick="copyNumber()" style="
+            background:linear-gradient(45deg,#FFD700,#FFA500);
+            border:none;
+            padding:8px 14px;
+            border-radius:10px;
+            color:black;
+            font-weight:700;
+            cursor:pointer;
+            ">
+                Salin
+            </button>
+
         </div>
+    </div>
 
-        <button onclick="closeModal()" style="margin-top:20px; background:#ef4444; border:none; padding:10px 20px; border-radius:10px; color:white; cursor:pointer;">
+    <div style="
+    background:#1f2937;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid rgba(255,215,0,0.2);
+    ">
+
+        <small style="color:#94a3b8;">Atas Nama</small>
+
+        <p id="pay-name" style="
+        color:white;
+        margin-top:6px;
+        font-weight:600;
+        "></p>
+    </div>
+
+    <button onclick="goWA()" class="buy-btn" style="
+    margin-top:15px;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    width:100%;
+    ">
+        Saya Sudah Transfer
+    </button>
+
+</div>
+
+        <button onclick="closeModal()" style="margin-top:20px; background:#ef4444; border:none; padding:10px 20px; border-radius:10px; color:white; cursor:pointer; width:100%;">
             Tutup
         </button>
     </div>
-</div>
 </div>
 </body>
 </html>
