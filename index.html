@@ -146,7 +146,7 @@
         }
 
         .products {
-            max-width: 1200px;
+            max-width: 00px;
             margin: 0 auto 100px;
             padding: 0 5% 100px;
             transition: opacity 0.3s ease;
@@ -679,7 +679,7 @@ document.getElementById('product-original').innerText =
     `Harga Normal: Rp ${originalPrice.toLocaleString('id-ID')}`;
 
 document.getElementById('product-discount').innerText =
-    `Harga Diskon 12%: Rp ${discountPrice.toLocaleString('id-ID')}`;
+    `Harga Diskon 20%: Rp ${discountPrice.toLocaleString('id-ID')}`;
     document.getElementById('payment-modal').style.display = 'flex';
 
     // reset tampilan
@@ -726,7 +726,7 @@ function goWA() {
 Produk: ${selectedProduct.title}
 
 Harga Normal: ${selectedProduct.originalPrice}
-Harga Diskon 12%: ${selectedProduct.price}
+Harga Diskon 20%: ${selectedProduct.price}
 
 Metode: ${selectedMethod}
 
@@ -865,7 +865,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const badge = document.createElement('div');
         badge.className = 'discount-badge';
-        badge.innerText = '🔥 DISKON 12%';
+        badge.innerText = '🔥 DISKON 20%';
         card.appendChild(badge);
 
         const priceEl = card.querySelector('.product-price');
