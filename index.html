@@ -352,34 +352,7 @@
             backdrop-filter: blur(15px);
             flex-shrink: 0;
         }
-         .discount-badge{
-    position:absolute;
-    top:15px;
-    right:15px;
-    background:#ef4444;
-    color:white;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:700;
-    z-index:10;
-}
-
-.old-price{
-    display:block;
-    font-size:16px;
-    color:#94a3b8;
-    text-decoration:line-through;
-    margin-bottom:5px;
-}
-
-.new-price{
-    display:block;
-    font-size:2rem;
-    font-weight:700;
-    color:#facc15;
-}
-        .tiktok-btn:hover {
+          .tiktok-btn:hover {
             background: rgba(255,215,0,0.2);
             border-color: #FFD700;
             color: #fff;
@@ -522,31 +495,16 @@
                 </div>
             </div>
 
+        
             <div class="product-card product-hedge">
                 <div class="product-type">Smart Hedge Trend</div>
-                <h3 class="product-title">Hedge Atas Bawah Candle</h3>
-                <div class="product-features">
-                    <div class="feature"><i class="fas fa-brain"></i>Grid Ikut Trend Harga</div>
-                    <div class="feature"><i class="fas fa-balance-scale"></i> Auto Balance Risk</div>
-                    <div class="feature"><i class="fas fa-robot"></i> Full Auto Trading</div>
-                </div>
-                <div class="product-price">Rp 650.000</div>
-                <div class="buttons-container">
-                    <button class="buy-btn">Beli Sekarang</button>
-                    <a href="https://vt.tiktok.com/ZSugukC81/" class="tiktok-btn" target="_blank">
-                        <i class="fab fa-tiktok"></i> Lihat Video
-                    </a>
-                </div>
-            </div>
-            <div class="product-card product-hedge">
-                <div class="product-type">Smart Hedge Trend</div>
-                <h3 class="product-title">Hedge Atas Bawah Close Candle</h3>
+                <h3 class="product-title">Hedge Atas Bawah Close Candle And TP</h3>
                 <div class="product-features">
                     <div class="feature"><i class="fas fa-brain"></i>Grid Ikut Trend Harga</div>
                     <div class="feature"><i class="fas fa-balance-scale"></i> Auto Balance Risk</div>
                     <div class="feature"><i class="fas fa-robot"></i> Full Auto Trading bedanya dia ga agrsive sama yang biasa tunggu close candle m1</div>
                 </div>
-                <div class="product-price">Rp 650.000</div>
+                <div class="product-price">Rp 700.000</div>
                 <div class="buttons-container">
                     <button class="buy-btn">Beli Sekarang</button>
                     <a href="https://vt.tiktok.com/ZSCJP7Sr8/" class="tiktok-btn" target="_blank">
@@ -563,7 +521,7 @@
                     <div class="feature"><i class="fas fa-shield-alt"></i> Ikut Harga Marti Cepat Close Profit</div>
                     <div class="feature"><i class="fas fa-sync-alt"></i> Auto Re-entry Full Auto</div>
                 </div>
-                <div class="product-price">Rp 700.000</div>
+                <div class="product-price">Rp 650.000</div>
                 <div class="buttons-container">
                     <button class="buy-btn">Beli Sekarang</button>
                     <a href="https://vt.tiktok.com/ZSuguef5F/" class="tiktok-btn" target="_blank">
@@ -580,7 +538,7 @@
                     <div class="feature"><i class="fas fa-shield-alt"></i> Hedge Ikuti Harga</div>
                     <div class="feature"><i class="fas fa-sync-alt"></i> Auto Re-entry</div>
                 </div>
-                <div class="product-price">Rp 580.000</div>
+                <div class="product-price">Rp 550.000</div>
                 <div class="buttons-container">
                     <button class="buy-btn">Beli Sekarang</button>
                     <a href="https://vt.tiktok.com/ZSuguM6JK/" class="tiktok-btn" target="_blank">
@@ -615,7 +573,6 @@ const paymentData = {
         name: "USDT TRC20 Network"
     }
 };
-
 // ================= BELI =================
 function buyProduct(btn) {
     const card = btn.closest('.product-card');
@@ -623,34 +580,33 @@ function buyProduct(btn) {
     const title = card.querySelector('.product-title').textContent.trim();
     const priceText = card.querySelector('.product-price').textContent.trim();
 
-    // Ambil angka dari harga
     const originalPrice = parseInt(
         priceText.replace(/[^\d]/g, '')
     );
 
-    // Hitung diskon 12%
-    const discountPrice = Math.round(originalPrice * 0.88);
-
     selectedProduct = {
         title: title,
-        originalPrice: `Rp ${originalPrice.toLocaleString('id-ID')}`,
-        price: `Rp ${discountPrice.toLocaleString('id-ID')}`
+        price: `Rp ${originalPrice.toLocaleString('id-ID')}`
     };
- document.getElementById('product-info').style.display = 'block';
 
-document.getElementById('product-name').innerText = title;
+    document.getElementById('product-info').style.display = 'block';
 
-document.getElementById('product-original').innerText =
-    `Harga Normal: Rp ${originalPrice.toLocaleString('id-ID')}`;
+    document.getElementById('product-name').innerText = title;
 
-document.getElementById('product-discount').innerText =
-    `Harga Diskon 20%: Rp ${discountPrice.toLocaleString('id-ID')}`;
+    // Sembunyikan harga normal
+    document.getElementById('product-original').style.display = 'none';
+
+    // Tampilkan hanya satu harga
+    document.getElementById('product-discount').innerText =
+        `Harga: Rp ${originalPrice.toLocaleString('id-ID')}`;
+
     document.getElementById('payment-modal').style.display = 'flex';
 
     // reset tampilan
     document.getElementById('payment-list').style.display = 'flex';
     document.getElementById('payment-detail').style.display = 'none';
 }
+
 // ================= CLOSE =================
 function closeModal() {
     document.getElementById('payment-modal').style.display = 'none';
@@ -682,6 +638,7 @@ function copyNumber() {
 
     alert("Nomor berhasil disalin!");
 }
+
 // ================= KE WA =================
 function goWA() {
     const phoneNumber = '62895637369705';
@@ -690,8 +647,7 @@ function goWA() {
 
 Produk: ${selectedProduct.title}
 
-Harga Normal: ${selectedProduct.originalPrice}
-Harga Diskon 20%: ${selectedProduct.price}
+Harga: ${selectedProduct.price}
 
 Metode: ${selectedMethod}
 
@@ -702,6 +658,7 @@ Mohon dicek ya 🙏`;
     window.open(url, '_blank');
     closeModal();
 }
+
 
 // ================= INIT =================
 document.addEventListener('DOMContentLoaded', function() {
@@ -820,44 +777,6 @@ display:none;
         </button>
     </div>
 </div>
-<script>
 
-// kode JS sebelumnya
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    document.querySelectorAll('.product-card').forEach(card => {
-
-        const badge = document.createElement('div');
-        badge.className = 'discount-badge';
-        badge.innerText = '🔥 DISKON 20%';
-        card.appendChild(badge);
-
-        const priceEl = card.querySelector('.product-price');
-
-        const originalPrice = parseInt(
-            priceEl.innerText.replace(/[^\d]/g, '')
-        );
-
-        const discountPrice = Math.round(originalPrice * 0.80);
-
-        priceEl.innerHTML = `
-            <span class="old-price">
-                Rp ${originalPrice.toLocaleString('id-ID')}
-            </span>
-            <span class="new-price">
-                Rp ${discountPrice.toLocaleString('id-ID')}
-            </span>
-        `;
-
-        // simpan untuk dipakai saat beli
-        priceEl.setAttribute('data-original-price', originalPrice);
-        priceEl.setAttribute('data-discount-price', discountPrice);
-
-    });
-
-});
-
-</script>
 </body>
 </html>
